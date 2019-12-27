@@ -9,6 +9,8 @@ class Match < ApplicationRecord
   belongs_to :plan
   has_many :events
 
+  # This would be provider based once you have multiple formats of supplied
+  # data to match against
   def self.match_keys
     [%w[Plan Name], %w[Company Name]]
   end
