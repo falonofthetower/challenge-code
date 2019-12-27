@@ -48,9 +48,7 @@ feature 'payload submission', type: :feature do
   def fake_redox_webhook(fixture)
     FakeRedoxWebhook.new(
       fixture: "#{fixture}.json",
-      host: Capybara.current_session.server.host,
-      path: '/events',
-      port: Capybara.current_session.server.port
+      path: '/events'
     )
   end
 end

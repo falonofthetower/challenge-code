@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+payload = JSON.parse(File.read("#{Rails.root}/spec/fixtures/webhooks/single.json")).fetch("body").first
+
+
+colors = %w(Blue Red Green Yellow Black)
+types = %w(Dark Light Hazy Fresh)
+
+colors.each do |color|
+  FactoryBot.create(:plan, name: color)
+end
+
+FactoryBot.create(:match, plan: Plan.find_by(name: 'Blue'), match_string: "Blue~Dark")
+
+3.times do
+  colors.each do |color|
+    types.each do |type|
+      payload["Plan"]["Name"] = color
+      payload["Company"]["Name"] = type
+      FactoryBot.create(:event, json_payload: payload)
+    end
+  end
+end

@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
-# spec/support/fake_redox_webhook.rb
+# app/services/fake_redox_webhook.rb
 require 'faraday'
 
+# https://thoughtbot.com/blog/use-faraday-to-test-incoming-webhooks
+# This project required whipping up something to fake the incoming webhook
+# requests. I didn't do much evaluation here besides it being a convenient leg
+# up.
 class FakeRedoxWebhook
-  def initialize(fixture:, host:, path:, port:)
+  def initialize(fixture:, path:, port: nil, host: nil)
     @fixture = fixture
-    @host = host
     @path = path
-    @port = port
-
+    @port = port || capybara_port
+    @host = host || capybara_host
     load_fixture
     construct_connection
   end
@@ -23,6 +26,14 @@ class FakeRedoxWebhook
   end
 
   private
+
+  def capybara_port
+    Capybara.current_session.server.port
+  end
+
+  def capybara_host
+    Capybara.current_session.server.host
+  end
 
   attr_accessor(
     :body,
