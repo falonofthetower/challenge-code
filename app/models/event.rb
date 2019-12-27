@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 # A record of each event that is supplied to the webhook by the provider
+# The event is stored here as a raw record prior to being processed. It includes
+# an understanding of having state where it knows whether it is well-formed,
+# already process or matched. Doing so allows for more efficient querying.
 class Event < ApplicationRecord
   belongs_to :match, optional: true
   has_one :plan, through: :match
@@ -11,9 +14,6 @@ class Event < ApplicationRecord
     missing: 'missing',
     malformed: 'malformed'
   }
-
-  scope :valid, -> { where(json_errors: false) }
-  scope :invalid, -> { where(json_errors: true) }
 
   scope :match_unchecked, -> { where(match_status: 'unchecked') }
   scope :match_missing, -> { where('match_status = ? AND match_id IS NULL', 'missing') }
