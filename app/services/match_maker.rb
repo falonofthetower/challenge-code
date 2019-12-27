@@ -3,7 +3,7 @@
 # Processes a single event
 # The heart and soul. This is where incoming events are compared to existing
 # matches.
-class MatchMaker
+class MatchMaker < ApplicationService
   attr_reader :event
 
   def initialize(event)

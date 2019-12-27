@@ -4,10 +4,10 @@
 # Most likely this gets kicked off by sidekiq, or processes events off of
 # RabbitMQ or some other async setup. Might even be able to abandon this with
 # Rabbit
-class EventsProcessor
+class EventsProcessor < ApplicationService
   def call
     Event.match_unchecked.each do |event|
-      MatchMaker.new(event).call
+      MatchMaker.call(event)
     end
   end
 end

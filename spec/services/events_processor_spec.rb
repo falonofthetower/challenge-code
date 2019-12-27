@@ -16,7 +16,7 @@ RSpec.describe EventsProcessor do
       expect(Event.match_unchecked).to eq [event]
       expect(Event.match_missing).to eq []
 
-      EventsProcessor.new.call
+      EventsProcessor.call
 
       expect(Event.match_unchecked).to eq []
       expect(Event.match_missing).to eq [event]
@@ -39,7 +39,7 @@ RSpec.describe EventsProcessor do
       expect(Event.match_unchecked).to eq [event]
       expect(Event.match_missing).to eq []
 
-      EventsProcessor.new.call
+      EventsProcessor.call
 
       expect(Event.match_unchecked).to eq []
       expect(Event.match_successful).to eq [event]
@@ -68,7 +68,7 @@ RSpec.describe EventsProcessor do
       expect(Event.match_unchecked).to eq events
       expect(Event.match_missing).to be_empty
 
-      EventsProcessor.new.call
+      EventsProcessor.call
 
       expect(Event.match_unchecked).to be_empty
       expect(Event.match_successful).to eq events
@@ -106,7 +106,7 @@ RSpec.describe EventsProcessor do
       match_string = 'Deductible Plan~Athena (123 456)'
       FactoryBot.create(:match, plan: plan, match_string: match_string)
 
-      EventsProcessor.new.call
+      EventsProcessor.call
 
       expect(Event.match_unchecked).to be_empty
       expect(Event.match_successful).to eq [good_event, other_good_event]
@@ -123,7 +123,7 @@ RSpec.describe EventsProcessor do
         json_payload: {}
       )
 
-      expect(MatchMaker).not_to receive(:new)
+      expect(MatchMaker).not_to receive(:call)
     end
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe MatchMaker do
       match_string = 'Deductible Plan~Athena (123 456)'
       FactoryBot.create(:match, plan: plan, match_string: match_string)
 
-      MatchMaker.new(event).call
+      MatchMaker.call(event)
 
       expect(event.match_status).to eq 'successful'
     end
@@ -32,7 +32,7 @@ RSpec.describe MatchMaker do
       plan = FactoryBot.create(:plan, name: 'Athena Silver')
       match_string = 'Deductible Plan~Athena (123 456)'
       FactoryBot.create(:match, plan: plan, match_string: match_string)
-      MatchMaker.new(event).call
+      MatchMaker.call(event)
 
       expect(event.plan).to eq plan
     end
@@ -48,7 +48,7 @@ RSpec.describe MatchMaker do
         }
       )
 
-      MatchMaker.new(event).call
+      MatchMaker.call(event)
 
       expect(event.match_status).to eq 'missing'
     end
@@ -62,7 +62,7 @@ RSpec.describe MatchMaker do
         }
       )
 
-      MatchMaker.new(event).call
+      MatchMaker.call(event)
 
       expect(event.plan).to be_nil
     end
