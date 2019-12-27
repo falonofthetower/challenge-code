@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Clone the repository and create/seed the database
 
 * Ruby version
 
+`ruby 2.5.1p57`
+
 * System dependencies
 
-* Configuration
-
-* Database creation
+`psql (11.2, server 9.6.11)`
 
 * Database initialization
 
+`bin/rake db:reset`
+
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+bin/rspec
 
 * Deployment instructions
-
-* ...
