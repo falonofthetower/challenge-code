@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 # Processes a single event
-class ProcessEvent
+# The heart and soul. This is where incoming events are compared to existing
+# matches.
+class MatchMaker
   attr_reader :event
 
   def initialize(event)
@@ -9,10 +11,7 @@ class ProcessEvent
   end
 
   def call
-    event.update(
-      match_status: status,
-      match: match
-    )
+    event.update(match_status: status, match: match)
   end
 
   private

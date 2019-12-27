@@ -123,7 +123,7 @@ RSpec.describe EventsProcessor do
         json_payload: {}
       )
 
-      expect(ProcessEvent).not_to receive(:new)
+      expect(MatchMaker).not_to receive(:new)
     end
   end
 end

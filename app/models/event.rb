@@ -33,6 +33,10 @@ class Event < ApplicationRecord
     HashValidator.validate(payload, validations)
   end
 
+  # There was something of a presumption in the challenge that the payload would
+  # be perfectly defined and everything would be present. This isn't really
+  # intended as a full fledged validation solution, more an example of where it
+  # could fit into the design. At minimum the keys we require are here.
   def validations
     {
       'Plan' => {
