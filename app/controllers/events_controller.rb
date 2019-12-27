@@ -3,10 +3,11 @@
 # Accepts external webhooks containg events
 class EventsController < ApplicationController
   def create
-    Event.create(json_payload: event_parameters, checked: 'false')
-  end
-
-  def event_parameters
-    params.require('_json').first.to_s
+    JSON.parse(request.body.read).each do |payload|
+      Event.new(json_payload: payload).tap do |event|
+        event.match_status = event.malformed? ? 'malformed' : 'unchecked'
+        event.save
+      end
+    end
   end
 end

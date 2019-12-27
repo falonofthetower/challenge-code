@@ -2,6 +2,24 @@
 
 FactoryBot.define do
   factory :event do
-    payload { { 'John' => 'new' }.to_json }
+    json_payload { { 'John' => 'new' } }
+    match_status { 'unchecked' }
+  end
+
+  trait :unchecked do
+    match_status { 'unchecked' }
+  end
+
+  trait :successful do
+    match_status { 'successful' }
+    match { FactoryBot.create(:match, plan: FactoryBot.create(:plan)) }
+  end
+
+  trait :missing do
+    match_status { 'missing' }
+  end
+
+  trait :malformed do
+    match_status { 'malformed' }
   end
 end

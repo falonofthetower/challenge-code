@@ -10,29 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_194814) do
+ActiveRecord::Schema.define(version: 2019_12_27_054323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "tags", array: true
-    t.integer "ratings", array: true
-    t.index ["ratings"], name: "index_books_on_ratings", using: :gin
-    t.index ["tags"], name: "index_books_on_tags", using: :gin
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.text "payload"
-    t.bigint "match_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "checked", default: false
-    t.jsonb "json_payload", default: {}, null: false
-    t.index ["json_payload"], name: "index_events_on_json_payload", using: :gin
-    t.index ["match_id"], name: "index_events_on_match_id"
-  end
+# Could not dump table "events" because of following StandardError
+#   Unknown type 'match_status' for column 'match_status'
 
   create_table "matches", force: :cascade do |t|
     t.bigint "plan_id"

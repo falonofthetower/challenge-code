@@ -1,0 +1,149 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": [
+    {
+      "Plan": {
+        "ID": "12345",
+        "IDType": "Payor ID",
+        "Name": "Deductible Plan",
+        "Type": null
+      },
+      "MemberNumber": null,
+      "Company": {
+        "ID": "54321",
+        "IDType": null,
+        "Name": "Athena (123 456)",
+        "Address": {
+          "StreetAddress": "PO Box 12345",
+          "City": "Roundtrip Town",
+          "State": "RT",
+          "ZIP": "12345",
+          "County": "Health County",
+          "Country": "US"
+        },
+        "PhoneNumber": "+12223334444"
+      },
+      "GroupNumber": "847025-123-4567",
+      "GroupName": "The Core Team",
+      "EffectiveDate": "2015-01-01",
+      "ExpirationDate": "2020-12-31",
+      "PolicyNumber": "656835555",
+      "AgreementType": null,
+      "CoverageType": null,
+      "Insured": {
+        "Identifiers": [],
+        "LastName": null,
+        "FirstName": null,
+        "SSN": null,
+        "Relationship": null,
+        "DOB": null,
+        "Sex": null,
+        "Address": {
+          "StreetAddress": null,
+          "City": null,
+          "State": null,
+          "ZIP": null,
+          "County": null,
+          "Country": null
+        }
+      }
+    },
+    {
+      "Plan": {
+        "ID": "12346",
+        "IDType": "Payor ID",
+        "Name": "PPO Plan",
+        "Type": null
+      },
+      "MemberNumber": null,
+      "Company": {
+        "ID": "54321",
+        "IDType": null,
+        "Name": "Athena Black",
+        "Address": {
+          "StreetAddress": "PO Box 12345",
+          "City": "Roundtrip Town",
+          "State": "RT",
+          "ZIP": "12345",
+          "County": "Health County",
+          "Country": "US"
+        },
+        "PhoneNumber": "+12223334444"
+      },
+      "GroupNumber": "847025-123-4567",
+      "GroupName": "The Core Team",
+      "EffectiveDate": "2015-01-01",
+      "ExpirationDate": "2020-12-31",
+      "PolicyNumber": "656835555",
+      "AgreementType": null,
+      "CoverageType": null,
+      "Insured": {
+        "Identifiers": [],
+        "LastName": null,
+        "FirstName": null,
+        "SSN": null,
+        "Relationship": null,
+        "DOB": null,
+        "Sex": null,
+        "Address": {
+          "StreetAddress": null,
+          "City": null,
+          "State": null,
+          "ZIP": null,
+          "County": null,
+          "Country": null
+        }
+      }
+    },
+    {
+      "Plan": {
+        "ID": "12347",
+        "IDType": "Payor ID",
+        "Name": "PPO Plan",
+        "Type": null
+      },
+      "MemberNumber": null,
+      "Company": {
+        "ID": "54321",
+        "IDType": null,
+        "Name": "Blue Cross",
+        "Address": {
+          "StreetAddress": "PO Box 12345",
+          "City": "Roundtrip Town",
+          "State": "RT",
+          "ZIP": "12345",
+          "County": "Health County",
+          "Country": "US"
+        },
+        "PhoneNumber": "+12223334444"
+      },
+      "GroupNumber": "847025-123-4567",
+      "GroupName": "The Core Team",
+      "EffectiveDate": "2015-01-01",
+      "ExpirationDate": "2020-12-31",
+      "PolicyNumber": "656835555",
+      "AgreementType": null,
+      "CoverageType": null,
+      "Insured": {
+        "Identifiers": [],
+        "LastName": null,
+        "FirstName": null,
+        "SSN": null,
+        "Relationship": null,
+        "DOB": null,
+        "Sex": null,
+        "Address": {
+          "StreetAddress": null,
+          "City": null,
+          "State": null,
+          "ZIP": null,
+          "County": null,
+          "Country": null
+        }
+      }
+    }
+  ]
+}
+
