@@ -14,6 +14,14 @@ class MatchMaker < ApplicationService
     event.update(match_status: status, match: match)
   end
 
+  def match_string
+    [].tap do |pieces|
+      Match.match_keys.map do |keys|
+        pieces << json.dig(*keys)
+      end
+    end.join('~')
+  end
+
   private
 
   def status
@@ -29,14 +37,6 @@ class MatchMaker < ApplicationService
   # have extracted it in this way it is preserved in the database. If necessary
   # one could always rebuild all of the matches by rebuilding a new match_string
   # with different keys. It would not be ideal, but doable.
-  def match_string
-    [].tap do |pieces|
-      Match.match_keys.map do |keys|
-        pieces << json.dig(*keys)
-      end
-    end.join('~')
-  end
-
   def json
     event.json_payload
   end
