@@ -107,3 +107,13 @@ set a pattern the team doesn't yet accept will be implemented inefficiently with
 detrimental strife. Software today is very much a team sport. When we teach the
 patterns like a rowing stroke, and the team embraces it we pull together and cut
 through the resistance like a knife.
+
+- List of interesting files
+
+[EventController](https://github.com/falonofthetower/roundtrip-challenge/blob/master/app/controllers/events_controller.rb)
+
+[Models](https://github.com/falonofthetower/roundtrip-challenge/tree/master/app/models)
+
+[Services](https://github.com/falonofthetower/roundtrip-challenge/tree/master/app/services)
+
+[Specs](https://github.com/falonofthetower/roundtrip-challenge/tree/master/spec)
