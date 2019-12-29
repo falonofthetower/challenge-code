@@ -35,7 +35,7 @@ the design is flexible enough that objects could be broken off specifically for
 solving that type of variance.
 
 Once the webhooks are received the process kicks off with [EventsProcessor](https://github.com/falonofthetower/roundtrip-challenge/blob/master/app/services/events_processor.rb). That process then attempts to make some matches.
-If you review the [seeds](https://github.com/falonofthetower/roundtrip-challenge/blob/master/db/seeds.rb) you may not that we have created a number of events and plans and a single match. The match is the object of our desire here.
+If you review the [seeds](https://github.com/falonofthetower/roundtrip-challenge/blob/master/db/seeds.rb) you may note that we have created a number of events, plans, and a single match. The match is the object of our desire here.
 In this case the intended correlation of plans to events is rather dull.
 Techinically if that was the actual challenge we could use the single key and
 match on color, but for our purposes let's just pretend we need both and not
