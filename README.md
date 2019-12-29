@@ -42,12 +42,15 @@ match on color, but for our purposes let's just pretend we need both and not
 complicate things.
 
 `Match.count => 1`
+
 `Event.count => 60`
+
 `Event.successful => []`
 
 So one token match, 60 events, and none processed successfully yet
 
-`EventsProcessor.call` #ignore the lengthy output
+`EventsProcessor.call` # lengthy output
+
 `Event.successful.count => 3`
 
 It matches every event that contains our match string of `Blue~Dark`.
@@ -55,14 +58,22 @@ It matches every event that contains our match string of `Blue~Dark`.
 Let's find the next thing to match.
 
 `match_string = MatchMaker.new(Event.missing.first).match_string => "Blue~Light"`
-Obviously Blue so: 
+
+Obviously Blue so:
+ 
 `plan = Plan.find_by(name: "Blue")`
+
 `match_string = MatchMaker.new(Event.missing.first).match_string`
+
 `FactoryBot.create(:match, plan: plan, match_string: match_string)`
+
 We reset the missing matches now that there is a new available match. When and
 how this would happen is a deeper system question I won't strive to answer here.
+
 `Event.missing.each {|e| e.update(match_status: 'unchecked') }`
+
 `EventsProcessor.call`
+
 `Event.successful.count => 6`
 
 Rinse and repeat.
